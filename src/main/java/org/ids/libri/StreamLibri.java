@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 import org.ids.libri.Libro.Categoria;
 
@@ -85,7 +86,9 @@ public class StreamLibri {
     // Titolo: "Harry Potter 1" "Harry Potter 2"... "Harry Potter n"
     // categoria: fantasy, prezzo: 15 euro
     public List<Libro> generaLibriHarryPotterDa15Euro(int n) {
-        return null;
+        return IntStream.rangeClosed(1, n)
+                        .mapToObj(i -> new Libro("Harry Potter ".concat(Integer.toString(i)), Categoria.FANTASY, 15))
+                        .collect(Collectors.toList());
     }
 
     public List<Libro> mescolaLista(List<Libro> list) {
