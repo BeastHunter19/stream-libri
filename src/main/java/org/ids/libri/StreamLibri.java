@@ -5,6 +5,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.ids.libri.Libro.Categoria;
+
 public class StreamLibri {
 
     // mi appoggio ad un factory method che genera a rotazione
@@ -16,7 +18,9 @@ public class StreamLibri {
     }
 
     public long contaLibriCyberpunk(List<Libro> list) {
-        return 0;
+        return list.stream()
+                   .filter(l -> l.getCategoria() == Categoria.CYBERPUNK)
+                   .count();
     }
 
     public List<Libro> prezzoCompresoTra12e15(List<Libro> list) {
