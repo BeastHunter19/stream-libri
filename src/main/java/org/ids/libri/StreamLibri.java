@@ -77,7 +77,9 @@ public class StreamLibri {
     }
 
     public List<Libro> libriOrdinatiPerPrezzo(List<Libro> list) {
-        return null;
+        return list.stream()
+                   .sorted(Comparator.comparing(Libro::getPrezzo))
+                   .collect(Collectors.toList());
     }
 
     // Titolo: "Harry Potter 1" "Harry Potter 2"... "Harry Potter n"
