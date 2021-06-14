@@ -64,7 +64,9 @@ public class StreamLibri {
     }
 
     public double sommaCostiInDollari(double EUR_USD, List<Libro> list) {
-        return 0.0;
+        return list.stream()
+                   .mapToInt(Libro::getPrezzo)
+                   .sum() * EUR_USD;
     }
 
     public Optional<Libro> libroMenoCaroDa12InSu(List<Libro> list) {
