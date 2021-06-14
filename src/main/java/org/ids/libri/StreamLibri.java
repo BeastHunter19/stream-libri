@@ -52,7 +52,9 @@ public class StreamLibri {
     }
 
     public int sommaCosti_reduce(List<Libro> list) {
-        return 0;
+        return list.stream()
+                   .map(Libro::getPrezzo)
+                   .reduce(0, Integer::sum);
     }
 
     public int sommaCosti_sum(List<Libro> list) {
