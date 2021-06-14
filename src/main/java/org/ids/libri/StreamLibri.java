@@ -101,7 +101,10 @@ public class StreamLibri {
     }
 
     public Optional<Libro> primoPiuCaroDelPrecedente(List<Libro> list) {
-        return null;
+        return IntStream.range(1, list.size())
+                        .filter(i -> list.get(i).getPrezzo() > list.get(i-1).getPrezzo())
+                        .mapToObj(i -> list.get(i))
+                        .findFirst();
     }
 
 }
