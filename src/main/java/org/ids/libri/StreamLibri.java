@@ -24,7 +24,10 @@ public class StreamLibri {
     }
 
     public List<Libro> prezzoCompresoTra12e15(List<Libro> list) {
-        return null;
+        return list.stream()
+                   .filter(l -> l.getPrezzo() <= 15)
+                   .filter(l -> l.getPrezzo() >= 12)
+                   .collect(Collectors.toList());
     }
 
     public List<String> filtraListaTitoliLibriCyberpunkOppureFantasy(List<Libro> list) {
