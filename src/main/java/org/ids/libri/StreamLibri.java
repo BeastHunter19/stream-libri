@@ -45,7 +45,10 @@ public class StreamLibri {
     }
 
     public boolean checkSePresenteBurningChrome(List<Libro> list) {
-        return true;
+        return list.stream()
+                   .filter(l -> l.getTitolo().equals("Burning Chrome"))
+                   .findAny()
+                   .isPresent();
     }
 
     public int sommaCosti_reduce(List<Libro> list) {
