@@ -3,6 +3,7 @@ package org.ids.libri;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.IntStream;
@@ -92,7 +93,11 @@ public class StreamLibri {
     }
 
     public List<Libro> mescolaLista(List<Libro> list) {
-        return null;
+        return Stream.generate(() -> new Random().nextInt(list.size()))
+                     .distinct()
+                     .limit(list.size())
+                     .map(i -> list.get(i))
+                     .collect(Collectors.toList());
     }
 
     public Optional<Libro> primoPiuCaroDelPrecedente(List<Libro> list) {
