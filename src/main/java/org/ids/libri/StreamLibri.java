@@ -38,7 +38,10 @@ public class StreamLibri {
     }
 
     public List<Libro> generaListaLibriCyberpunk(int n) {
-        return null;
+        return Stream.generate(Libreria::gen)
+                     .filter(l -> l.getCategoria() == Categoria.CYBERPUNK)
+                     .limit(n)
+                     .collect(Collectors.toList());
     }
 
     public boolean checkSePresenteBurningChrome(List<Libro> list) {
