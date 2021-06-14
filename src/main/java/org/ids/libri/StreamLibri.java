@@ -31,7 +31,10 @@ public class StreamLibri {
     }
 
     public List<String> filtraListaTitoliLibriCyberpunkOppureFantasy(List<Libro> list) {
-        return null;
+        return list.stream()
+                   .filter(l -> l.getCategoria() == Categoria.CYBERPUNK || l.getCategoria() == Categoria.FANTASY)
+                   .map(Libro::getTitolo)
+                   .collect(Collectors.toList());
     }
 
     public List<Libro> generaListaLibriCyberpunk(int n) {
