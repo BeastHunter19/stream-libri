@@ -1,5 +1,6 @@
 package org.ids.libri;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -70,7 +71,9 @@ public class StreamLibri {
     }
 
     public Optional<Libro> libroMenoCaroDa12InSu(List<Libro> list) {
-        return null;
+        return list.stream()
+                   .filter(l -> l.getPrezzo() >= 12)
+                   .min(Comparator.comparing(Libro::getPrezzo));
     }
 
     public List<Libro> libriOrdinatiPerPrezzo(List<Libro> list) {
